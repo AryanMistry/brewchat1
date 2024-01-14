@@ -6,11 +6,11 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:capsuleapp/supplement/image_store.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'package:capsuleapp/firebase_options.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:ui' as ui;
-import 'pages/log_in.dart';
+import 'package:capsuleapp/pages/log_in.dart';
 
 
 
@@ -54,8 +54,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: LoginPage(),
-      // home: const MyHomePage(title: 'CAPSULE'),
+      home: const MyHomePage(title: 'CAPSULE'),
     );
   }
 }
@@ -157,83 +156,83 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text("widget.title"),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
+        appBar: AppBar(
+          // TRY THIS: Try changing the color here to a specific color (to
+          // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+          // change color while the other colors stay the same.
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text("widget.title"),
+        ),
+        body: Center(
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
+            child: Column(
+              // Column is also a layout widget. It takes a list of children and
+              // arranges them vertically. By default, it sizes itself to fit its
+              // children horizontally, and tries to be as tall as its parent.
+              //
+              // Column has various properties to control how it sizes itself and
+              // how it positions its children. Here we use mainAxisAlignment to
+              // center the children vertically; the main axis here is the vertical
+              // axis because Columns are vertical (the cross axis would be
+              // horizontal).
+              //
+              // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
+              // action in the IDE, or press "p" in the console), to see the
+              // wireframe for each widget.
 
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        IconButton(
-          icon: const Icon(Icons.photo),
-          onPressed: () => _imageSelect(context),
-          iconSize: 40,
-        ),
-        const Text(
-          'Post Image',
-          style: TextStyle(fontSize: 36.0),
-        ),
-        ElevatedButton(onPressed: postImage, child: Text("Post")),
-        SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              // Your content goes here
-              Container(
-                height: 200,
-                color: Colors.blue,
-                child: Center(
-                  child: StreamBuilder(
-                    stream: FirebaseFirestore.instance.collection('posts').snapshots(),
-                    builder: (context, AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-                      return ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: snapshot.data!.docs.length,
-                        itemBuilder: (ctx, index) => SizedBox(
-                          width: ui.window.physicalSize.width / ui.window.devicePixelRatio,
-                          child: Image.network(
-                            snapshot.data!.docs[index].get('postUrl'),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                IconButton(
+                  icon: const Icon(Icons.photo),
+                  onPressed: () => _imageSelect(context),
+                  iconSize: 40,
+                ),
+                const Text(
+                  'Post Image',
+                  style: TextStyle(fontSize: 36.0),
+                ),
+                ElevatedButton(onPressed: postImage, child: Text("Post")),
+                SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      // Your content goes here
+                      Container(
+                        height: 200,
+                        color: Colors.blue,
+                        child: Center(
+                          child: StreamBuilder(
+                            stream: FirebaseFirestore.instance.collection('posts').snapshots(),
+                            builder: (context, AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+                              if (snapshot.connectionState == ConnectionState.waiting) {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+                              return ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: snapshot.data!.docs.length,
+                                itemBuilder: (ctx, index) => SizedBox(
+                                  width: ui.window.physicalSize.width / ui.window.devicePixelRatio,
+                                  child: Image.network(
+                                    snapshot.data!.docs[index].get('postUrl'),
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
-                      );
-                    },
+                      ),
+                      // Add more widgets as needed
+                    ],
                   ),
                 ),
-              ),
-              // Add more widgets as needed
-            ],
-          ),
-        ),
-      ],
+              ],
 // This trailing comma makes auto-formatting nicer for build methods.
-    )
-    )
+            )
+        )
     );
   }
 
