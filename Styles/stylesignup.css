@@ -44,7 +44,7 @@
     background: transparent;
     cursor: pointer;
     z-index: 1;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .hero-btn-in { 
@@ -57,7 +57,7 @@
     background: transparent;
     cursor: pointer;
     z-index: 1;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .hero-btn-up:hover {

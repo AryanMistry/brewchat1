@@ -32,6 +32,11 @@
 .text-box h1 {
     font-size: 62px;
     line-height: 1.2;
+    /* color: rgb(85, 210, 255); */
+}
+
+.text-box h5 {
+    font-size: 20px;
 }
 
 .hero-btn { 
