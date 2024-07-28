@@ -457,7 +457,15 @@ wp.jpI18nLoader.state = {"baseUrl":"https://css-tricks.com/wp-content/languages/
   
 </header>
 
-<!-- <button name="forwardBtn" onclick="record()">Forward</button> -->
+<form action="/start_recording" method="POST">
+  <input name="company" type="text" value="company"><br>
+  <input name="participant" type="text"  value="carticipant"><br><br>
+  <input type="submit" value="Start Recording">
+</form> 
+<!-- <button onclick="location.href='/start_recording';" class = "">Start Recording</button> -->
+<button onclick="location.href='/stop_recording';" class = "">Stop Recording</button>
+
+
 
   <div class="page-wrap">
 <main id="maincontent">
@@ -519,316 +527,38 @@ wp.jpI18nLoader.state = {"baseUrl":"https://css-tricks.com/wp-content/languages/
     </h2>
       </div>
 
-  <div class="mini-card-grid">
-    <article class="mini-card module module-article articles" id="mini-post-378111">
+<div class="mini-card-grid">
 
-  <time datetime="2024-06-10" title="Originally published Jun 10, 2024">
-    <strong>
-                
-        Article
-      </strong>
+{% for summary in summaries %}
+    <article class="mini-card module module-article articles">
 
-    on
+    <strong>    
+        {{ summary[2] }}
+    </strong>
 
-    Jun 14, 2024  </time>
+    <h3 class="mini-card-title">
+      Summary: 
+      {{ summary[0][0]}} <br>
+      Key Insights: 
+      {{ summary[0][1]}} <br>
+      Next Steps: 
+      {{ summary[0][2]}} <br>
+      Questions:
+      {{ summary[0][3]}}
+    </h3>
 
-  <h3 class="mini-card-title">
-    <a href="https://css-tricks.com/css-container-queries/">
-      CSS Container Queries    </a>
-  </h3>
+    <div class="author-row"><div class="author-name">{{ summary[1] }}</div></div>
 
+    </article>
   
-      <div class="tags">
-      <a href="https://css-tricks.com/tag/container-queries/" rel="tag">container-queries</a>    </div>
-  
-  <div class="author-row">
-    <a href="https://css-tricks.com/author/geoffgraham/" aria-label="Author page of Geoff Graham">
-      <img alt='' src='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=80&#038;d=retro&#038;r=pg' srcset='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=160&#038;d=retro&#038;r=pg 2x' class='avatar avatar-80 photo' height='80' width='80' decoding='async'/>    </a>
-  
-    <a class="author-name" href="https://css-tricks.com/author/geoffgraham/">
-      Geoff Graham    </a>
-  </div>
 
-</article>
-<article class="mini-card module module-article notes" id="mini-post-379002">
-
-  <time datetime="2024-07-09" title="Originally published Jul 9, 2024">
-    <strong>
-                
-        Article
-      </strong>
-
-    on
-
-    Jul 19, 2024  </time>
-
-  <h3 class="mini-card-title">
-    <a href="https://css-tricks.com/if-css-gets-inline-conditionals/">
-      &#8220;If&#8221; CSS Gets Inline Conditionals    </a>
-  </h3>
-
-  
-      <div class="tags">
-      <a href="https://css-tricks.com/tag/custom-properties/" rel="tag">custom properties</a> <a href="https://css-tricks.com/tag/selectors/" rel="tag">selectors</a>    </div>
-  
-  <div class="author-row">
-    <a href="https://css-tricks.com/author/geoffgraham/" aria-label="Author page of Geoff Graham">
-      <img alt='' src='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=80&#038;d=retro&#038;r=pg' srcset='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=160&#038;d=retro&#038;r=pg 2x' class='avatar avatar-80 photo' height='80' width='80' decoding='async'/>    </a>
-  
-    <a class="author-name" href="https://css-tricks.com/author/geoffgraham/">
-      Geoff Graham    </a>
-  </div>
-
-</article>
-<article class="mini-card module module-article articles" id="mini-post-378637">
-
-  <time datetime="2024-06-26" title="Originally published Jun 26, 2024">
-    <strong>
-                
-        Article
-      </strong>
-
-    on
-
-    Jul 19, 2024  </time>
-
-  <h3 class="mini-card-title">
-    <a href="https://css-tricks.com/poppin-in/">
-      Poppin&#8217; In    </a>
-  </h3>
-
-  
-      <div class="tags">
-      <a href="https://css-tricks.com/tag/popover/" rel="tag">popover</a>    </div>
-  
-  <div class="author-row">
-    <a href="https://css-tricks.com/author/geoffgraham/" aria-label="Author page of Geoff Graham">
-      <img alt='' src='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=80&#038;d=retro&#038;r=pg' srcset='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=160&#038;d=retro&#038;r=pg 2x' class='avatar avatar-80 photo' height='80' width='80' decoding='async'/>    </a>
-  
-    <a class="author-name" href="https://css-tricks.com/author/geoffgraham/">
-      Geoff Graham    </a>
-  </div>
-
-</article>
-<article class="mini-card module module-article articles" id="mini-post-375815">
-
-  <time datetime="2024-06-03" title="Originally published Jun 3, 2024">
-    <strong>
-                
-        Article
-      </strong>
-
-    on
-
-    Jun 18, 2024  </time>
-
-  <h3 class="mini-card-title">
-    <a href="https://css-tricks.com/css-length-units/">
-      CSS Length Units    </a>
-  </h3>
-
-  
-      <div class="tags">
-      <a href="https://css-tricks.com/tag/container-units/" rel="tag">container units</a> <a href="https://css-tricks.com/tag/units/" rel="tag">units</a>    </div>
-  
-  <div class="author-row">
-    <a href="https://css-tricks.com/author/geoffgraham/" aria-label="Author page of Geoff Graham">
-      <img alt='' src='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=80&#038;d=retro&#038;r=pg' srcset='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=160&#038;d=retro&#038;r=pg 2x' class='avatar avatar-80 photo' height='80' width='80' decoding='async'/>    </a>
-  
-    <a class="author-name" href="https://css-tricks.com/author/geoffgraham/">
-      Geoff Graham    </a>
-  </div>
-
-</article>
-<article class="mini-card module module-article " id="mini-post-378574">
-
-  <time datetime="2024-06-07" title="Originally published Jun 7, 2024">
-    <strong>
-                
-      Almanac
-      </strong>
-
-    on
-
-    Jun 10, 2024  </time>
-
-  <h3 class="mini-card-title">
-    <a href="https://css-tricks.com/almanac/selectors/v/view-transition/">
-      ::view-transition    </a>
-  </h3>
-
-      <a href="https://css-tricks.com/almanac/selectors/v/view-transition/" class="almanac-example">
-      <code class="language-css">::view-transition { position: fixed;  }</code>
-    </a>
-  
-      <div class="tags">
-      <a href="https://css-tricks.com/tag/view-transitions/" rel="tag">view transitions</a>    </div>
-  
-  <div class="author-row">
-    <a href="https://css-tricks.com/author/geoffgraham/" aria-label="Author page of Geoff Graham">
-      <img alt='' src='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=80&#038;d=retro&#038;r=pg' srcset='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=160&#038;d=retro&#038;r=pg 2x' class='avatar avatar-80 photo' height='80' width='80' decoding='async'/>    </a>
-  
-    <a class="author-name" href="https://css-tricks.com/author/geoffgraham/">
-      Geoff Graham    </a>
-  </div>
-
-</article>
-<article class="mini-card module module-article " id="mini-post-378042">
-
-  <time datetime="2024-01-15" title="Originally published Jan 15, 2024">
-    <strong>
-                
-      Snippet
-      </strong>
-
-    on
-
-    May 29, 2024  </time>
-
-  <h3 class="mini-card-title">
-    <a href="https://css-tricks.com/snippets/css/basic-view-transition/">
-      Basic Multi-Page View Transition    </a>
-  </h3>
-
-  
-      <div class="tags">
-      <a href="https://css-tricks.com/tag/view-transitions/" rel="tag">view transitions</a>    </div>
-  
-  <div class="author-row">
-    <a href="https://css-tricks.com/author/geoffgraham/" aria-label="Author page of Geoff Graham">
-      <img alt='' src='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=80&#038;d=retro&#038;r=pg' srcset='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=160&#038;d=retro&#038;r=pg 2x' class='avatar avatar-80 photo' height='80' width='80' decoding='async'/>    </a>
-  
-    <a class="author-name" href="https://css-tricks.com/author/geoffgraham/">
-      Geoff Graham    </a>
-  </div>
-
-</article>
-<article class="mini-card module module-article articles" id="mini-post-344497">
-
-  <time datetime="2021-07-20" title="Originally published Jul 20, 2021">
-    <strong>
-                
-        Article
-      </strong>
-
-    on
-
-    Jul 20, 2021  </time>
-
-  <h3 class="mini-card-title">
-    <a href="https://css-tricks.com/typewriter-animation-that-handles-anything-you-throw-at-it/">
-      Typewriter Animation That Handles Anything You Throw at It    </a>
-  </h3>
-
-  
-      <div class="tags">
-      <a href="https://css-tricks.com/tag/animation/" rel="tag">animation</a> <a href="https://css-tricks.com/tag/javascript/" rel="tag">JavaScript</a>    </div>
-  
-  <div class="author-row">
-    <a href="https://css-tricks.com/author/murtuzaalisurti/" aria-label="Author page of Murtuzaali Surti">
-      <img alt="" class="avatar avatar-80 photo avatar-default" height="80" src="https://css-tricks.com/wp-content/uploads/2021/07/uQbduxW-_400x400-80x80.jpg" width="80">    </a>
-  
-    <a class="author-name" href="https://css-tricks.com/author/murtuzaalisurti/">
-      Murtuzaali Surti    </a>
-  </div>
-
-</article>
-<article class="mini-card module module-article " id="mini-post-378543">
-
-  <time datetime="2024-06-05" title="Originally published Jun 5, 2024">
-    <strong>
-                
-      Almanac
-      </strong>
-
-    on
-
-    Jun 5, 2024  </time>
-
-  <h3 class="mini-card-title">
-    <a href="https://css-tricks.com/almanac/selectors/d/details-content/">
-      ::details-content    </a>
-  </h3>
-
-      <a href="https://css-tricks.com/almanac/selectors/d/details-content/" class="almanac-example">
-      <code class="language-css">details::details-content { font-size: 1.5rem; }</code>
-    </a>
-  
-      <div class="tags">
-      <a href="https://css-tricks.com/tag/details/" rel="tag">details</a>    </div>
-  
-  <div class="author-row">
-    <a href="https://css-tricks.com/author/geoffgraham/" aria-label="Author page of Geoff Graham">
-      <img alt='' src='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=80&#038;d=retro&#038;r=pg' srcset='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=160&#038;d=retro&#038;r=pg 2x' class='avatar avatar-80 photo' height='80' width='80' decoding='async'/>    </a>
-  
-    <a class="author-name" href="https://css-tricks.com/author/geoffgraham/">
-      Geoff Graham    </a>
-  </div>
-
-</article>
-<article class="mini-card module module-article articles" id="mini-post-377635">
-
-  <time datetime="2024-03-29" title="Originally published Mar 29, 2024">
-    <strong>
-                
-        Article
-      </strong>
-
-    on
-
-    Apr 19, 2024  </time>
-
-  <h3 class="mini-card-title">
-    <a href="https://css-tricks.com/the-power-of-has-in-css/">
-      The Power of :has() in CSS    </a>
-  </h3>
-
-  
-      <div class="tags">
-      <a href="https://css-tricks.com/tag/has/" rel="tag">:has</a> <a href="https://css-tricks.com/tag/css/" rel="tag">CSS</a>    </div>
-  
-  <div class="author-row">
-    <a href="https://css-tricks.com/author/chrisdemars/" aria-label="Author page of Chris DeMars">
-      <img alt="" class="avatar avatar-80 photo avatar-default" height="80" src="https://css-tricks.com/wp-content/uploads/2024/03/headshot-80x80.jpeg" width="80">    </a>
-  
-    <a class="author-name" href="https://css-tricks.com/author/chrisdemars/">
-      Chris DeMars    </a>
-  </div>
-
-</article>
-<article class="mini-card module module-article " id="mini-post-378046">
-
-  <time datetime="2024-05-22" title="Originally published May 22, 2024">
-    <strong>
-                
-      Snippet
-      </strong>
-
-    on
-
-    May 22, 2024  </time>
-
-  <h3 class="mini-card-title">
-    <a href="https://css-tricks.com/snippets/css/case-sensitive-selectors/">
-      Case-Sensitive Selectors    </a>
-  </h3>
-
-  
-      <div class="tags">
-      <a href="https://css-tricks.com/tag/selectors/" rel="tag">selectors</a>    </div>
-  
-  <div class="author-row">
-    <a href="https://css-tricks.com/author/geoffgraham/" aria-label="Author page of Geoff Graham">
-      <img alt='' src='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=80&#038;d=retro&#038;r=pg' srcset='https://secure.gravatar.com/avatar/1a1b5ca4b139c0c8caaea26ef437d943?s=160&#038;d=retro&#038;r=pg 2x' class='avatar avatar-80 photo' height='80' width='80' decoding='async'/>    </a>
-  
-    <a class="author-name" href="https://css-tricks.com/author/geoffgraham/">
-      Geoff Graham    </a>
-  </div>
-
-</article>
-  </div>
-
+{% endfor %}
 </div>
+
+
+
+
+<!--  
   <div class="articles-and-sidebar">
 
     <footer class="site-footer">
@@ -903,7 +633,7 @@ wp.jpI18nLoader.state = {"baseUrl":"https://css-tricks.com/wp-content/languages/
       <div id="consent-banner"></div>
       <div id="teconsent">
         <script async="async" src="https://consent.trustarc.com/notice?domain=css-tricks.com&amp;c=teconsent&amp;js=nj&amp;noticeType=bb&amp;text=true&amp;gtm=1" crossorigin></script>
-      </div>
+      </div> -->
       <script>
         var style = document.createElement('style');
         style.innerHTML = '#teconsent {position: fixed; z-index: 1000; bottom: 0px; right: 0; font-size: 0px; height: 33px;}';

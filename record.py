@@ -5,20 +5,27 @@ from summarize import summarize
 
 
 
-def record(filename):
+flag = True
+
+
+def recorder():
+    
+    global flag
+    flag = True
+
+    filename = "hello"
     actual_file = "recordings/" + filename + ".mp3"
     audio = pyaudio.PyAudio()
     stream = audio.open(format=pyaudio.paInt16, channels=1, rate=44100, input=True, frames_per_buffer=1024)
 
     frames = []
 
-    try:
-        while True:
-            data = stream.read(1024)
-            frames.append(data)
-    except KeyboardInterrupt:
-        pass
-
+    
+    
+    while flag:
+        data = stream.read(1024)
+        frames.append(data)
+   
 
     stream.stop_stream()
     stream.close()
@@ -36,14 +43,26 @@ def record(filename):
     
     transcription = transcribe(actual_file)
     if (len(transcription) >= 50):
-        print(summarize(transcription))
+        summary = summarize(transcription)
+        return summary
+
+    print("no")
+    return ""
     
-        print("\n\n\n" + transcription)
 
 
 
-name = input()
 
-record(name)
+
+def stopRecording():
+    global flag
+    flag = False
+
+
+
+
+
+
+
 
 
