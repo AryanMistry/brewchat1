@@ -1,9 +1,9 @@
 let slideIndex = 0;
 const images = [
-    'coffeechat1.jpg',
-    'coffeechat2.jpg',
-    'coffeechat3.jpg',
-    'coffeechat4.jpg'
+    '/Assets/coffeechat1.jpg',
+    '/Assets/coffeechat2.jpg',
+    '/Assets/coffeechat3.jpg',
+    '/Assets/coffeechat4.jpg'
 ];
 
 function showSlides() {
