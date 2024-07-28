@@ -15,15 +15,18 @@ if (isset($_GET['logout'])) {
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Include the content from the style.css here */
+        <?php include('style.css'); ?>
+    </style>
 </head>
 <body>
 
 <div class="header">
     <h2>Home Page</h2>
 </div>
-Welcome to my project page    
 <div class="content">
+    Welcome to my project page    
     <!-- notification message -->
     <?php if (isset($_SESSION['success'])) : ?>
       <div class="error success" >
